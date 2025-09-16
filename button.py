@@ -19,9 +19,9 @@ class Button:
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.rect_color, self.rect)
-        screen.blit(self.text, self.text_rect)
         if self.img is not None:
-            screen.blit(self.img, (self.x, self.y))
+            screen.blit(self.img, self.img.get_rect(center = self.rect.center))
+        screen.blit(self.text, self.text_rect)
 
     def is_hovered_over(self, mouse_pos: tuple):
         if self.x < mouse_pos[0] < self.x + self.width and self.y < mouse_pos[1] < self.y + self.height:
